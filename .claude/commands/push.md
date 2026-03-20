@@ -31,7 +31,15 @@ If `SKIP_TESTS` is not set, run tests:
 If the changes are trivial (docs, comments, config templates, markdown, command files, .gitignore, etc.), skip tests and continue directly.
 
 Then:
-2. Run `git add .` to stage all changes
-3. Run `git status` and `git diff --staged` to review what will be committed
-4. Commit with a conventional commit message (feat:, fix:, refactor:, chore:, docs:, test:, etc.)
-5. Push to the remote branch
+2. **Check if the architecture diagram needs updating.** The diagram lives between `<!-- ARCHITECTURE_DIAGRAM_START -->` and `<!-- ARCHITECTURE_DIAGRAM_END -->` in `README.md`. Regenerate it ONLY if the diff includes any of these structural changes:
+   - A module directory was added or removed (new/deleted directory under `data/`, `features/`, `evaluation/`, `signals/`, `scripts/`)
+   - A new data source or model type was added
+   - The pipeline flow changed significantly (new stage, removed stage, reordered stages)
+
+   If none of these apply, skip this step entirely. When regenerating, replace the content between the markers with an updated Mermaid diagram that reflects the current architecture. Stage the changed `README.md`.
+
+3. Run `git add .` to stage all changes
+4. Run `git status` and `git diff --staged` to review what will be committed
+5. Commit with a conventional commit message (feat:, fix:, refactor:, chore:, docs:, test:, etc.)
+6. Update `CHANGELOG.md` with a new dated section for today (or append to today's section if one exists). Keep entries **extremely concise** — one short line per item, no essays. Group under Added/Changed/Fixed/Removed as appropriate. Only include items that matter for research workflow (data sources, feature engineering, evaluation pipeline, signal contract, config thresholds). Skip pure test-only or trivial doc changes. Then `git add CHANGELOG.md` and amend the commit.
+7. Push to the remote branch

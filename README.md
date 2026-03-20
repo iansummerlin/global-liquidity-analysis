@@ -30,6 +30,56 @@ This is still good research output. The repo built and falsified the idea honest
 
 ## Architecture
 
+<!-- ARCHITECTURE_DIAGRAM_START -->
+```mermaid
+graph TD
+    subgraph Data["data/"]
+        FRED[fred.py] --> Cache[cache.py]
+        BOJ[boj.py] --> Cache
+        ECB[ecb.py] --> Cache
+        BTC[btc.py]
+        Validation[validation.py]
+        Pipeline[pipeline.py]
+    end
+
+    subgraph Features["features/"]
+        Norm[normalisation.py]
+        Agg[aggregation.py]
+        Mom[momentum.py]
+    end
+
+    subgraph Evaluation["evaluation/"]
+        Regime[regime.py]
+        Backtest[backtest.py]
+        Reporting[reporting.py]
+    end
+
+    subgraph Signals["signals/"]
+        Export[export.py]
+    end
+
+    subgraph Scripts["scripts/"]
+        LeadLag[explore_lead_lag.py]
+        HalvInt[halving_interaction.py]
+        RegStab[regime_stability.py]
+    end
+
+    Pipeline --> Norm --> Agg --> Mom --> Regime
+    Regime --> Export
+    Export --> Artifact["artifacts/liquidity_regime.json"]
+    BTC --> Backtest
+    Regime --> Backtest
+    Backtest --> Reporting
+    Reporting --> Report["artifacts/evaluation_report.md"]
+
+    Config[config.py] -.-> Pipeline
+    Config -.-> Export
+    Main[main.py] --> Pipeline
+    Main --> Export
+    Main --> Reporting
+```
+<!-- ARCHITECTURE_DIAGRAM_END -->
+
 ```text
 .
 ├── data/         # source loaders, BTC loader, cache, validation, fetch pipeline
