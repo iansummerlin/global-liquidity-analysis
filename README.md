@@ -24,7 +24,7 @@ What that means in practice:
 
 - in this repo, the macro relationship is directionally interesting but not statistically strong enough to claim standalone predictive power
 - in `bitcoin-price-analysis`, additive liquidity features were a tradeoff, not an improvement
-- the best downstream use so far is an optional regime/context filter, not a promoted model feature family
+- the best downstream use so far is regime detection and optional context/gating, not a promoted model feature family
 
 This is still good research output. The repo built and falsified the idea honestly.
 
@@ -241,11 +241,12 @@ Downstream result so far:
 
 - additive liquidity features were mixed
 - liquidity regime worked better as optional context/gating than as a direct additive family
+- the strongest surviving use case is macro regime detection
 
 ## What This Repo Proved
 
 1. A global liquidity composite can be built cleanly from free macro sources with a point-in-time artifact contract.
-2. The signal is worth keeping as macro research context.
+2. The signal is worth keeping as macro regime-detection and research context.
 3. The signal is not strong enough, in its current form, to justify strong standalone trading claims.
 
 ## Roadmap

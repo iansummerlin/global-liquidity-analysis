@@ -59,6 +59,7 @@ Current result:
 
 - evaluation conclusion in this repo: `useful as context only`
 - downstream result in `bitcoin-price-analysis`: additive liquidity features were mixed; liquidity regime worked better as optional context/gating than as a direct additive feature family
+- most defensible role: macro regime detection, not standalone prediction
 
 ---
 
@@ -181,7 +182,7 @@ Downstream findings:
 
 Interpretation:
 
-- liquidity is worth keeping as macro context
+- liquidity is worth keeping as macro regime/context infrastructure
 - liquidity is not strong enough to rescue the downstream BTC signal economically
 
 ---
@@ -232,5 +233,5 @@ Not justified by current evidence:
 Any of these counts as success:
 
 1. The repo produces a clean, reusable liquidity artifact for downstream research.
-2. The repo proves liquidity is useful as macro context even if not a strong standalone signal.
+2. The repo proves liquidity is useful as macro regime context even if not a strong standalone signal.
 3. The repo documents a weak or mixed result honestly enough to prevent wasted downstream effort.

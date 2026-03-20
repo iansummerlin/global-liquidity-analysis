@@ -4,7 +4,7 @@
 
 A global liquidity data-product and research repo. It builds a point-in-time global liquidity dataset and regime artifact that can be tested for incremental value in Bitcoin research and trading systems. The canonical plan and progress live in `ROADMAP.md`.
 
-**Current status:** Core build-out complete, all sources hardened. All 5 components fetch via FRED, though free PBoC coverage ends in 2019-08. `make update` produces and validates `artifacts/liquidity_regime.json`. `make evaluate` runs lead-lag, regime, halving analysis and writes `artifacts/evaluation_report.md`. Current conclusion: useful as context only. The artifact is already consumed downstream by `bitcoin-price-analysis`.
+**Current status:** Core build-out complete, all sources hardened. All 5 components fetch via FRED, though free PBoC coverage ends in 2019-08. `make update` produces and validates `artifacts/liquidity_regime.json`. `make evaluate` runs lead-lag, regime, halving analysis and writes `artifacts/evaluation_report.md`. Current conclusion: useful as context only, with the strongest role being macro regime detection rather than standalone prediction. The artifact is already consumed downstream by `bitcoin-price-analysis`.
 
 ## Architecture
 
